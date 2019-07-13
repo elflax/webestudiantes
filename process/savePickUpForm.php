@@ -14,7 +14,7 @@
 	$clase = mysql_real_escape_string(test_input($_POST['clase']));
 	$date_register = mysql_real_escape_string(test_input($_POST['date_register']));
 
-	$sql="INSERT INTO `pickup` (`id`, `name`, `lastname`, `clase`, `date_pick_up`) VALUES (NULL, '$name', '$lastname', '$clase', '$date_register');";
+	$sql="INSERT INTO `pick_up_data` (`id`, `name`, `clase`, `pick_up_date`) VALUES (NULL, CONCAT('$name',' ','$lastname'), '$clase', '$date_register');";
 	// die($sql);
 	$result = mysql_query($sql);
 

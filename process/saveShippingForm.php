@@ -14,7 +14,7 @@
 	$clase = mysql_real_escape_string(test_input($_POST['clase']));
 	$address = mysql_real_escape_string(test_input($_POST['address']));
 
-	$sql="INSERT INTO `student` (`id`, `name`, `lastname`, `clase`, `address`) VALUES (NULL, '$name', '$lastname', '$clase', '$address');";
+	$sql="INSERT INTO `pick_up_data` (`id`, `name`, `clase`, `shipping_address`) VALUES (NULL, CONCAT('$name',' ','$lastname'), '$clase', '$address');";
 	$result = mysql_query($sql);
 
 	header('Location: ../index.php?result='.$result);	
