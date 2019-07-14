@@ -4,6 +4,7 @@
 
 	$sql = 'SELECT * FROM pick_up_data WHERE shipping_address IS NOT NULL AND pick_up_date IS NULL AND shipping_date IS NULL';	
 	$result = mysql_query($sql);
+	mysql_close();
 ?>
 
 	<?php require "./head.php"; 

@@ -15,7 +15,11 @@
 	$date_register = mysql_real_escape_string(test_input($_POST['date_register']));
 
 	$sql="INSERT INTO `pick_up_data` (`id`, `name`, `clase`, `pick_up_date`) VALUES (NULL, CONCAT('$name',' ','$lastname'), '$clase', '$date_register');";
-	// die($sql);
 	$result = mysql_query($sql);
-
+	if($result!=1){
+		$error = mysql_error();
+		mysql_close();
+		header('Location: ../pickUpForm.php?result='.urlencode($error));	
+	}
+	mysql_close();
 	header('Location: ../pickUpForm.php?result='.$result);	

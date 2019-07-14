@@ -2,7 +2,7 @@
 		<div class="container">
 			<div class="text-center">
 				<div class="card">
-				  	<h5 class="card-header" style="">Pick up form</h5>
+				  	<h5 class="card-header" style="">Shipping Form</h5>
 				  	<div class="card-body">
 				  		<?php if(isset($_GET['result'])): ?>
 					  		<?php if($_GET['result'] == '1'): ?>
@@ -13,12 +13,21 @@
 							  	</button>
 							</div>
 							<?php else: ?>
-							<div class="alert alert-danger alert-dismissible fade show" role="alert">
-							  	<strong>Dissaster: </strong> There has been a problem processing your registration
-							  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							    	<span aria-hidden="true">&times;</span>
-							  	</button>
-							</div>
+								<?php if(is_numeric($_GET['result'])): ?>
+								<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								  	<strong>Dissaster: </strong> There has been a problem processing your registration
+								  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								    	<span aria-hidden="true">&times;</span>
+								  	</button>
+								</div>
+								<?php else: ?>
+								<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								  	<strong>Error: </strong> <?php echo urldecode($_GET['result']); ?>
+								  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								    	<span aria-hidden="true">&times;</span>
+								  	</button>
+								</div>	
+								<?php endif ?>
 							<?php endif ?>
 						<?php endif ?>
 
@@ -28,7 +37,7 @@
 					    		<div class="col-lg-6 col-sm-12 input-group mb-3">
 					    			<div class="input-group-prepend">
 									    <span class="input-group-text" id="basic-addon3">
-									    	<i class="fa fa-user"></i>
+									    	<i class="fa fa-home fa-fw" aria-hidden="true"></i>
 									    </span>
 									</div>
 					    			<input type="text" class="form-control" name="name" pattern="[A-Za-z ]{1-60}" id="name" maxlength="60" placeholder="Name" required>
@@ -50,11 +59,11 @@
 									    </span>
 									</div>
 					    			<select class="form-control"  name="clase" id="clase" required>
-					    				<option value="clase 1">clase 1</option>	
-					    				<option value="clase 2">clase 2</option>	
-					    				<option value="clase 3">clase 3</option>	
-					    				<option value="clase 4">clase 4</option>	
-					    				<option value="clase 5">clase 5</option>	
+					    				<option value="<?php echo CLASE_1; ?>"><?php echo CLASE_1; ?></option>	
+					    				<option value="<?php echo CLASE_2; ?>"><?php echo CLASE_2; ?></option>	
+					    				<option value="<?php echo CLASE_3; ?>"><?php echo CLASE_3; ?></option>	
+					    				<option value="<?php echo CLASE_4; ?>"><?php echo CLASE_4; ?></option>	
+					    				<option value="<?php echo CLASE_5; ?>"><?php echo CLASE_5; ?></option>	
 					    			</select>
 					    		</div>
 					    	</div>
@@ -62,10 +71,10 @@
 					    		<h5 class="col-lg-12 col-sm-12 text-left">Address: <button type="button" class="btn btn-xs btn-primary btn-success btn-rounded" data-toggle="tooltip" data-placement="top" title="Example Format Correct: 2425 SW 27th DR, Gainesville, FL, 32605, USA | Plaza De Bolívar, Cartago, Valle del Cauca, Colombia"><b>?</b></button></h5>
 					    		<div class="col-lg-12 col-sm-12 input-group mb-3">
 					    			<div class="input-group-prepend">
-									    <span class="input-group-text fa fa-search">
+									    <span class="input-group-text fa fa-map-marker">
 									    </span>
 									</div>
-					    			<input type="text" class="form-control" name="address" id="address" placeholder="Address" pattern="[A-Za-z ]{1-255}" maxlength="255" required>
+					    			<input type="text" class="form-control" name="address" id="address" placeholder="Address" autocomplete="off" required>
 					    		</div>
 					    	</div>
 					    	<br>
@@ -85,7 +94,7 @@
 				autocomplete.setFields(['address_component']);
 		    }
 		</script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4H7qhXYKRCuzvIXUIUbyOm9M2Aw1gtwk&libraries=places&callback=initAutocomplete"
+		<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo GOOGLE_API_KEY; ?>&libraries=places&callback=initAutocomplete"
          async defer></script>
 
 	<?php require "./scripts.php"; ?>

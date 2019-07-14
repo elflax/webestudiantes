@@ -16,12 +16,21 @@
 							  	</button>
 							</div>
 							<?php else: ?>
-							<div class="alert alert-danger alert-dismissible fade show" role="alert">
-							  	<strong>Dissaster: </strong> There has been a problem processing your registration
-							  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							    	<span aria-hidden="true">&times;</span>
-							  	</button>
-							</div>
+								<?php if(is_numeric($_GET['result'])): ?>
+								<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								  	<strong>Dissaster: </strong> There has been a problem processing your registration
+								  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								    	<span aria-hidden="true">&times;</span>
+								  	</button>
+								</div>
+								<?php else: ?>
+								<div class="alert alert-danger alert-dismissible fade show" role="alert">
+								  	<strong>Error: </strong> <?php echo urldecode($_GET['result']); ?>
+								  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								    	<span aria-hidden="true">&times;</span>
+								  	</button>
+								</div>	
+								<?php endif ?>
 							<?php endif ?>
 						<?php endif ?>
 
@@ -53,11 +62,11 @@
 									    </span>
 									</div>
 					    			<select class="form-control"  name="clase" id="clase" required>
-					    				<option value="clase 1">clase 1</option>	
-					    				<option value="clase 2">clase 2</option>	
-					    				<option value="clase 3">clase 3</option>	
-					    				<option value="clase 4">clase 4</option>	
-					    				<option value="clase 5">clase 5</option>	
+					    				<option value="<?php echo CLASE_1; ?>"><?php echo CLASE_1; ?></option>	
+					    				<option value="<?php echo CLASE_2; ?>"><?php echo CLASE_2; ?></option>	
+					    				<option value="<?php echo CLASE_3; ?>"><?php echo CLASE_3; ?></option>	
+					    				<option value="<?php echo CLASE_4; ?>"><?php echo CLASE_4; ?></option>	
+					    				<option value="<?php echo CLASE_5; ?>"><?php echo CLASE_5; ?></option>	
 					    			</select>
 					    		</div>
 					    	</div>
