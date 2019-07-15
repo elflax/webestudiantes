@@ -1,4 +1,8 @@
 <?php
+	session_start();
+	if(!isset($_SESSION['admin_id'])){
+		header('Location: ./login.php');
+	}
 	$mysql_id = mysql_connect("localhost","root","") or die(mysql_error());
 	mysql_select_db("florida_university") or die(mysql_error());
 

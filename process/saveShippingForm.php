@@ -16,7 +16,8 @@
 
 	$sql="INSERT INTO `pick_up_data` (`id`, `name`, `clase`, `shipping_address`) VALUES (NULL, CONCAT('$name',' ','$lastname'), '$clase', '$address');";
 	$result = mysql_query($sql);
-	if($result!=1){
+	$error = 1;
+	if($result != 1){
 		$error = mysql_error();
 		mysql_close();
 		header('Location: ../index.php?result='.$error);	

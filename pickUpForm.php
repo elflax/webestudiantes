@@ -43,14 +43,14 @@
 									    	<i class="fa fa-user"></i>
 									    </span>
 									</div>
-					    			<input type="text" class="form-control" name="name" pattern="[A-Za-z ]{1-60}" id="name" maxlength="60" placeholder="Name" required>
+					    			<input type="text" class="form-control" name="name" id="name" maxlength="60" placeholder="Name" required>
 					    		</div>
 					    		<div class="col-lg-6 col-sm-12 input-group mb-3">
 					    			<div class="input-group-prepend">
 									    <span class="input-group-text fa fa-user">
 									    </span>
 									</div>
-					    			<input type="text" class="form-control"  name="lastname" id="lastname" pattern="[A-Za-z ]{1-60}" maxlength="60" placeholder="Lastname" required>
+					    			<input type="text" class="form-control"  name="lastname" id="lastname" maxlength="60" placeholder="Lastname" required>
 					    		</div>
 					    	</div>
 					    	<br>

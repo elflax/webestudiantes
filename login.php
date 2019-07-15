@@ -37,7 +37,7 @@
 									    	@
 									    </span>
 									</div>
-					    			<input type="email" class="form-control" name="email" pattern="[A-Za-z ]{1-60}" id="email" maxlength="60" placeholder="Email" required>
+					    			<input type="email" class="form-control" name="email" id="email" maxlength="60" placeholder="Email" required>
 					    		</div>
 					    	</div>
 					    	<br>
@@ -49,7 +49,7 @@
 									    	<i class="fa fa-key fa-fw" aria-hidden="true"></i>
 									    </span>
 									</div>
-					    			<input type="password" class="form-control" name="password" pattern="[A-Za-z ]{1-60}" id="password" maxlength="60" placeholder="Password" required>
+					    			<input type="password" class="form-control" name="password" id="password" maxlength="60" placeholder="Password" required>
 					    		</div>
 					    	</div>
 					    	<br>
