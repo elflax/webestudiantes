@@ -8,7 +8,7 @@
 		<div class="container">
 			<div class="text-center">
 				<div class="card">
-				  	<h5 class="card-header" style="">MCS Login</h5>
+				  	<h5 class="card-header" style="">Company Login</h5>
 				  	<div class="card-body">
 				  		<?php if(isset($_GET['result'])): ?>
 					  		<?php if($_GET['result'] == '1'): ?>
@@ -37,6 +37,7 @@
 									    	@
 									    </span>
 									</div>
+									<input type="hidden" name="company" value="1">
 					    			<input type="email" class="form-control" name="email" id="email" maxlength="60" placeholder="Email" required>
 					    		</div>
 					    	</div>

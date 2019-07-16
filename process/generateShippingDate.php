@@ -1,6 +1,7 @@
 <?php
-	$mysql_id = mysql_connect("localhost","root","") or die(mysql_error());
-	mysql_select_db("florida_university") or die(mysql_error());
+	require "../env.php";
+	$mysql_id = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die(mysql_error());
+	mysql_select_db(DB_NAME) or die(mysql_error());
 
 	function test_input($data) {
 	  	$data = trim($data);

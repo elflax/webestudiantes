@@ -4,8 +4,8 @@
 			header('Location: ./login.php');
 		}
 		require "./head.php"; 
-		$mysql_id = mysql_connect("localhost","root","") or die(mysql_error());
-		mysql_select_db("florida_university") or die(mysql_error());
+		$mysql_id = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die(mysql_error());
+		mysql_select_db(DB_NAME) or die(mysql_error());
 
 		$sql = 'SELECT * FROM pick_up_data WHERE clase="'.CLASE_1.'"';
 		$clase1 = mysql_query($sql);

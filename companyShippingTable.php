@@ -1,23 +1,24 @@
+<?php require "./head.php"; 
+	?>
 <?php
 	session_start();
-	if(!isset($_SESSION['admin_id'])){
-		header('Location: ./login.php');
+	if(!isset($_SESSION['company_id'])){
+		header('Location: ./companyLogin.php');
 	}
-	$mysql_id = mysql_connect("localhost","root","") or die(mysql_error());
-	mysql_select_db("florida_university") or die(mysql_error());
+	$mysql_id = mysql_connect(DB_HOST,DB_USER,DB_PASSWORD) or die(mysql_error());
+	mysql_select_db(DB_NAME) or die(mysql_error());
 
 	$sql = 'SELECT * FROM pick_up_data WHERE shipping_address IS NOT NULL AND pick_up_date IS NULL AND shipping_date IS NULL';	
 	$result = mysql_query($sql);
 	mysql_close();
 ?>
-
-	<?php require "./head.php"; 
-	?>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 		<div class="container">
 			<div class="text-center">
 				<div class="card">
-				  	<h5 class="card-header" style="">Pick up form</h5>
+				  	<h5 class="card-header" style="">Pick up form
+				  		<a href="./process/companyLogout.php" style="color: white;" title="Log Out" class="btn btn-success btn-lg"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+				  	</h5>
 				  	<div class="card-body">
 				  		<?php if(isset($_GET['result'])): ?>
 					  		<?php if($_GET['result']== 1): ?>
