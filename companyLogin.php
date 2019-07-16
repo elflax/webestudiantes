@@ -1,7 +1,7 @@
 	<?php 
 		session_start();
-		if(isset($_SESSION['admin_id'])){
-			header('Location: ./MCSAdmin.php');
+		if(isset($_SESSION['company_id'])){
+			header('Location: ./companyShippingTable.php');
 		}
 		require "./head.php";
 	?>
