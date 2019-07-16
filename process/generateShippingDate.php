@@ -18,5 +18,5 @@
 		$sql = "UPDATE pick_up_data SET shipping_date='$date' WHERE id='$id'";	
 		$result = mysql_query($sql);
 		mysql_close();
-		header('Location: ../companyShippingTable.php?result=$result');	
+		header('Location: ../companyShippingTable.php?result='.$result);	
 	}
