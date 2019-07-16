@@ -12,8 +12,11 @@
 	}
 	$email = mysql_real_escape_string(test_input($_POST['email']));
 	$password = mysql_real_escape_string(test_input($_POST['password']));
-
-	$sql = 'SELECT id, password FROM users WHERE email="admin@admin.com" AND password=PASSWORD("'.$password.'") LIMIT 1';
+	if(isset($_POST['company'])){
+		$sql = 'SELECT id, password FROM users WHERE email="'.$email.'" AND type=2 AND password=PASSWORD("'.$password.'") LIMIT 1';
+	}else{
+		$sql = 'SELECT id, password FROM users WHERE email="'.$email.'" AND type=1 AND password=PASSWORD("'.$password.'") LIMIT 1';
+	}
 	// die($sql);
 	$result = mysql_query($sql);
 	while($row = mysql_fetch_assoc($result)){
